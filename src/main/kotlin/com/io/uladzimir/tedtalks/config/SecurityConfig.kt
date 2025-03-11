@@ -20,8 +20,8 @@ class SecurityConfig {
     fun securityFilterChain(httpSecurity: HttpSecurity): SecurityFilterChain {
         httpSecurity
             .authorizeHttpRequests { auth ->
-            auth.anyRequest().authenticated()
-        }
+                auth.anyRequest().authenticated()
+            }
             .httpBasic(Customizer.withDefaults())
             .sessionManagement { session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS) }
             .csrf { it.disable() } // Enable in Production

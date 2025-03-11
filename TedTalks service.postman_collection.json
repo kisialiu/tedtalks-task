@@ -1,0 +1,183 @@
+{
+	"info": {
+		"_postman_id": "fdc6c1e5-2233-4d94-96c5-022b5f877918",
+		"name": "TedTalks service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41830629"
+	},
+	"item": [
+		{
+			"name": "Upload CSV",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "password",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/vovav/IdeaProjects/iO_Data.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/tedtalks/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"tedtalks",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save talk",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "password",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Test\",\r\n    \"author\": \"test author 2\",\r\n    \"date\":\t\"January 2025\",\r\n    \"views\": 5,\r\n    \"likes\": 20,\r\n    \"link\":\t\"https://ted.com/talks/ozawa_bineshi_albert_climate_action_needs_new_frontline_leadership\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/tedtalks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"tedtalks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get talk",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "password",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/tedtalks?title=How wind energy could power Earth ... 18 times over",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"tedtalks"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "How wind energy could power Earth ... 18 times over"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get top influencers",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "password",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/tedtalks/top-influencers?topNumber=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"tedtalks",
+						"top-influencers"
+					],
+					"query": [
+						{
+							"key": "topNumber",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
